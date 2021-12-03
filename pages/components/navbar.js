@@ -46,9 +46,9 @@ function Navbar() {
               mr={4}
               ml={4}
               _focus={{ border: "none" }}
+              cursor="pointer"
             />
           </ToolTipWrapper>
-          <Link>Account</Link>
         </Box>
       </Flex>
     </div>
