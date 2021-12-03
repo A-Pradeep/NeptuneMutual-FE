@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { MoonStars } from "@styled-icons/bootstrap";
 import { Sun } from "@styled-icons/fa-solid";
+import { MoonStarsFill } from "@styled-icons/bootstrap";
 
-export const MoonStarsIcon = styled(MoonStars)`
+export const MoonStarsIcon = styled(MoonStarsFill)`
   color: #171923;
 `;
 
