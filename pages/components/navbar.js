@@ -7,9 +7,9 @@ import {
   Image,
   Center,
   Heading,
+  Tooltip,
 } from "@chakra-ui/react";
-import { MoonStarsIcon, SunIcon } from "../constant/icons";
-import ToolTipWrapper from "../constant/toolTipWrapper";
+import { MoonStarsIcon, SunIcon } from "../../constant/icons";
 
 function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -22,13 +22,13 @@ function Navbar() {
           <Center>
             <Link href="https://neptunemutual.com">
               <Heading isTruncated size="xl">
-                Neptune Mututal
+                Neptune Mutual
               </Heading>
             </Link>
           </Center>
         </Box>
         <Box display="flex" gridGap="4" alignItems="center">
-          <ToolTipWrapper
+          <Tooltip
             label={`Toggle ${colorMode === "light" ? "Dark" : "Light"} mode`}
           >
             <IconButton
@@ -48,7 +48,7 @@ function Navbar() {
               _focus={{ border: "none" }}
               cursor="pointer"
             />
-          </ToolTipWrapper>
+          </Tooltip>
         </Box>
       </Flex>
     </div>
