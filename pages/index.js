@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Navbar from "./components/navbar";
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>Welcome to Neptune Mututal - Assignment</h1>
+        <Navbar />
       </main>
     </div>
   );
