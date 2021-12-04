@@ -12,11 +12,9 @@ export const SunIcon = styled(Sun)`
 `;
 
 export const CurrencyExchangeIcon = styled(CurrencyExchange)`
-  color: #171923;
-  dark-mode: #fff;
+  color: inherit;
 `;
 
 export const ConverterIcon = styled(Convertio)`
-  color: #171923;
-  dark-mode: #fff;
+  color: inherit;
 `;
