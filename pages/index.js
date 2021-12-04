@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Dashboard from "./components/dashboard";
 import Navbar from "./components/navbar";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
 
       <main>
         <Navbar />
+        <Dashboard />
       </main>
     </div>
   );
