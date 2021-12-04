@@ -1,72 +1,58 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   FormControl,
   FormLabel,
-  NumberInput,
-  NumberInputField,
   Divider,
   IconButton,
   Center,
   Button,
   useDisclosure,
+  Tooltip,
 } from "@chakra-ui/react";
 import Card from "./card";
 import { ConverterIcon, CurrencyExchangeIcon } from "../../constant/icons";
 import CustomModal from "./modal";
+import {
+  convert_on_BUSD,
+  convert_on_NEP,
+  reset_currency,
+} from "../../redux/converter";
+import InputComponent from "./input";
 
 function Dashboard() {
-  const [fromCurrency, setFromCurrency] = useState();
-  const [toCurrency, setToCurrency] = useState();
+  const { NEP, BUSD } = useSelector((state) => state.converter);
+  const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const handleNEP = (e) =>
-    setToCurrency(String(Number(Math.round(e * 3 + "e" + 2) + "e-" + 2)));
-
-  const handleBUSD = (e) =>
-    setFromCurrency(String(Number(Math.round(e / 3 + "e" + 2) + "e-" + 2)));
 
   return (
     <>
       <Card>
         <FormControl>
-          <FormLabel>NEP</FormLabel>
-          <NumberInput
-            id="NEP"
-            defaultValue={1}
-            min={1}
-            value={fromCurrency}
-            precision={2}
-            step={0.01}
-            onChange={handleNEP}
-          >
-            <NumberInputField />
-          </NumberInput>
+          <InputComponent
+            label="NEP"
+            currentvalue={NEP}
+            onChange={(e) => dispatch(convert_on_BUSD(e.target.value))}
+          />
           <Divider orientation="horizontal" height="15px" visibility="hidden" />
           <Center>
-            <IconButton
-              icon={<ConverterIcon size={30} />}
-              variant="ghost"
-              size="lg"
-              cursor="unset"
-            />
+            <Tooltip label="Rest Value">
+              <IconButton
+                icon={<ConverterIcon size={30} />}
+                variant="ghost"
+                size="lg"
+                onClick={() => dispatch(reset_currency())}
+              />
+            </Tooltip>
           </Center>
           <Divider orientation="horizontal" height="15px" visibility="hidden" />
-          <FormLabel>BUSD</FormLabel>
-          <NumberInput
-            id="BUSD"
-            min={3}
-            defaultValue={3}
-            value={toCurrency}
-            precision={2}
-            step={0.01}
-            onChange={handleBUSD}
-          >
-            <NumberInputField />
-          </NumberInput>
+          <InputComponent
+            label="BUSD"
+            currentvalue={BUSD}
+            onChange={(e) => dispatch(convert_on_NEP(e.target.value))}
+          />
           <Divider orientation="horizontal" height="70px" visibility="hidden" />
           <Center>
             <Button
-              loadingText="Logging in..."
               variat="ghost"
               bg="#1B4683"
               color="#fff"
