@@ -9,6 +9,7 @@ function InputComponent({ label, currentvalue, onChange }) {
         value={currentvalue}
         onChange={onChange}
         type="number"
+        min="0"
         size="md"
         placeholder="0.00"
       />
