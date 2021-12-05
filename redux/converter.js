@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  NEP: 1,
-  BUSD: 3,
+  NEP: 0,
+  BUSD: 0,
 };
 
 export const converterSlice = createSlice({
@@ -10,18 +10,30 @@ export const converterSlice = createSlice({
   initialState,
   reducers: {
     convert_on_NEP: (state, { payload }) => {
-      if (payload === "") return;
+      if (payload === "") {
+        if (state.NEP >= 0) {
+          state.NEP = 0;
+        } else {
+          return "";
+        }
+      }
       state.NEP = (payload / 3).toFixed(2).toString();
       state.BUSD = payload;
     },
     convert_on_BUSD: (state, { payload }) => {
-      if (payload === "") return;
+      if (payload === "") {
+        if (state.BUSD >= 0) {
+          state.BUSD = 0;
+        } else {
+          return "";
+        }
+      }
       state.BUSD = (payload * 3).toFixed(2).toString();
       state.NEP = payload;
     },
     reset_currency: (state) => {
-      state.NEP = 1;
-      state.BUSD = 3;
+      state.NEP = 0;
+      state.BUSD = 0;
     },
   },
 });
