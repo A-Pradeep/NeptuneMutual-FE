@@ -18,9 +18,9 @@ function Navbar() {
     <div>
       <Flex justify="space-between" px="7" py="4" alignItems="center">
         <Box display="flex" gridGap="4" justifyContent="center">
-          <Image src="/neptune-mutual.svg" />
+          <Image src="/neptune-mutual.svg" alt="Neptune Mututal logo" />
           <Center>
-            <Link href="https://neptunemutual.com">
+            <Link href="https://neptunemutual.com" target="_blank">
               <Heading isTruncated size="xl">
                 Neptune Mutual
               </Heading>
