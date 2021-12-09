@@ -2,7 +2,7 @@ import Head from "next/head";
 import Dashboard from "./components/dashboard";
 import Navbar from "./components/navbar";
 
-export default function Home() {
+export default function Home({ onLogin, onLogout }) {
   return (
     <div>
       <Head>
@@ -26,7 +26,7 @@ export default function Home() {
 
       <main>
         <Navbar />
-        <Dashboard />
+        <Dashboard onLogin={onLogin} onLogout={onLogout} />
       </main>
     </div>
   );
